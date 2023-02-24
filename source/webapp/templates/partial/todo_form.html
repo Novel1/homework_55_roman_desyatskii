@@ -1,0 +1,30 @@
+        {% csrf_token %}
+        <div class="mb-3" style="margin-top: 15px">
+            {% if errors %}
+                <p class="error">{{ errors.title }}</p>
+            {% endif %}
+            <label for="title" class="form-label">Название</label>
+            <input type="text" name="title" class="form-control" id="title" value="{{ todo.title }}">
+        </div>
+        <div class="mb-3">
+            <label for="data" class="form-label">Дата</label>
+            <input type="text" name="data" class="form-control" id="data" placeholder="YYYY-mm-dd">
+        </div>
+        <div class="mb-3">
+            <label for="status" class="form-label">Статус</label>
+            <select class="form-select" aria-label="Пример выбора по умолчанию" name="status">
+                {% for choice in choices %}
+                    {% if todo.status == choice.0 %}
+                        <option value="{{ choice.0 }}" selected>{{ choice.1 }}</option>
+                    {% else %}
+                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Описание</label>
+            <textarea class="form-control" name="description" id="description"
+                      rows="3">{{ todo.description }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" value="{{ button_text }}">Add product</button>
