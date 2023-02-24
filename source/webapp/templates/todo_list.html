@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for todolist in todo %}
+        <hr>
+        <h3><p>{{ todolist.title }}</p></h3>
+        <a href="{% url 'inform' todolist.pk %}" style="text-decoration: none">Подробная информация...</a>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                    Список задач и добавление задач
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                 data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>Список задач: </strong> Оно отображает список задач и дел, которые нужно выполнить.
+                    <p><strong>Добавление задач: </strong> Добавляет дела в список задач.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block menu %}
+    <a href="{% url 'todo_update' todo.pk %}">
+        <button type="button" class="btn btn-warning">Редактировать</button>
+    </a>
+    <a href="{% url 'confirm_delete' todo.pk %}">
+        <button type="button" class="btn btn-warning">Удалить</button>
+    </a>
+{% endblock %}
+{% block content %}
+    <div class="list" style="margin-left: 100px;">
+        <hr>
+        <h3><p>{{ todo.title }}</p></h3>
+        <p>{{ todo.description }}</p>
+        <h3><p>{{ todo.status }}</p></h3>
+        <p>{{ todo.created_at }}</p>
+    </div>
+{% endblock %}

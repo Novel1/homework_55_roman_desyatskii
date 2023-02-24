@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block menu %}
+    <a href="{% url 'todo_update' todo.pk %}">
+        <button type="button" class="btn btn-warning">Редактировать</button>
+    </a>
+{% endblock %}
+{% block content %}
+    <h3 style="margin-left: 450px">Вы точно хотите удалить задачу "{{ todo.title }}"?</h3>
+    <div class="list" style="margin-left: 550px; margin-top: 30px">
+        <form action="{% url 'confirm_delete' todo.pk %}" method="post">
+            <div class="wrapper" style="display: flex">
+                {% csrf_token %}
+                <p><input type="submit" value="Удалить" style="margin-left: 35px"></p>
+                <a href="{% url 'list' %}"><p><input name="exit" type="submit" value="Отмена" style="margin-left: 35px"></p></a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
